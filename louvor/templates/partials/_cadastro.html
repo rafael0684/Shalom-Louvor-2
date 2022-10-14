@@ -1,0 +1,40 @@
+{% block content %}
+{% load static %}
+
+<!-- cadastro Modal -->
+<div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Cadastro</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+                    <form action="{% url 'cadastro' %}" method="POST">
+                    
+                        <label for="nome"><b>Nome</b></label>
+                    <input type="text" class="form-control me-2 rounded-pill" name="nome" placeholder="Ex.:Rafael" required>
+                    <br>   
+                    <label for="sobrenome"><b>Sobrenome</b></label>
+                    <input type="text" class="form-control me-2 rounded-pill" name="sobrenome" placeholder="Ex.:Almeida" required>
+                    <br> 
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" class="form-control me-2 rounded-pill" name="email" placeholder="Ex.: rafael@shalom.com" required>
+                    <br>   
+                    <label for="password"><b>Senha</b></label>
+                    <input type="password" class="form-control me-2 rounded-pill" name="password" placeholder="Digite sua senha" required>
+                    <br>   
+                    <label for="password2"><b>Confirmação de senha</b></label>
+                    <input type="password" class="form-control me-2 rounded-pill" name="password2" placeholder="Digite sua senha mais uma vez" required>
+                    <br>
+                    <div class="modal-footer justify-content-center">
+                        <button class="btn btn-outline-dark border-1 rounded-pill btn-lg" type="submit">Criar sua conta</button>
+                    </div>
+                    {% csrf_token %}
+                </form>  
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

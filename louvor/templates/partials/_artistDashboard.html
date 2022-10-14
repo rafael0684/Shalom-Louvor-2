@@ -1,0 +1,20 @@
+{% load static %}
+<div class="listaMusicas container"><p>Artistas: </p></div>
+<div class="container dashboard">
+    <ul class="dashboard--principal">
+        {% if artistas %}
+        {% for artista in artistas %}
+         <li class="dashboard--principal_item">
+            <span>
+              <a href="{% url 'todasMusicasArtista' artista.id %}"><img class="item__img" src="{{artista.artista_pic.url}}" alt=""></a>
+              <p class="musica__img-title" >{{artista.nome_artista}}</p>
+            </span>
+        </li>
+
+
+        {% endfor %}
+        {% else %}
+        {% endif %}
+
+    </ul>
+</div>

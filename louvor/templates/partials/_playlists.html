@@ -1,0 +1,18 @@
+{% load static %}
+{% if playlists %}
+<div class="listaMusicas container"> 
+            <p>Playlists: </p>
+            
+            <div class="container">
+                <ul class="lista_de_musicas">     
+                    {% for playlist in playlists %}
+                    <li class="listaMusicas__musica justify-content-between" style="max-width: 100%;">       
+                            <a href="{% url 'add_M_Playlist' playlist.id %}"><img src="{% static 'img/icones/playlist.png' %}" alt="" class="rounded-top musica__img" ></a>
+                            <a href="{% url 'add_M_Playlist' playlist.id %}" class="musica__titulo me-3"><p >{{ playlist.playlist_name }} <span class="fst-italic"> : </span> {{playlist.playlist_data}}</p></a>  
+                                                
+                    </li>                              
+                    {% endfor %}            
+                </ul>           
+            </div>
+        </div>
+{% endif %}

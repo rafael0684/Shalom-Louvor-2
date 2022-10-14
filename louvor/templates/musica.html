@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <main>
+        <div class="container d-flex  justify-content-space-between">
+            <div class="card border-light mb-3 musica--card">
+                <div class="card-body ">
+                    <div class="card border-0">
+                        <div class="d-flex align-items-center">
+                        <img src="{{ musica.nome_artista.artista_pic.url }}" class="rounded-top musica--img" alt="Foto do Artista">
+                        <h2 class="card-title mx-4 me-8">{{musica.titulo_musica}}</h2><br>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <span class="fst-italic"> by</span> {{musica.nome_artista}} | {{musica.release_year}} </div>
+                            
+                        </div><br>
+ 
+                        {% for estrofe in musica_estrofes %}
+                        <pre class="card-text lyrics-texto">{{estrofe}}</pre>
+                        {% endfor %}  
+                      
+                    
+                
+                </div> 
+            </div>
+            <div class="card border-0" style="max-width: 450px;">
+                   
+            </div>
+        </div>
+
+ </div>
+       
+      
+        
+    </main>
+
+{% endblock %}

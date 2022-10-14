@@ -1,0 +1,63 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="static/css/apresentacao.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'img/shalom.png' %}">
+    
+    <title>Shalom - Ministerio de Louvor</title>
+</head>
+
+<body >
+
+<!--   <button onclick="openFullscreen();">full</button> -->
+<!-- Slider main container -->
+<div id="myswipe" class="swiper mySwiper d-flex justify-content-center align-center">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper  justify-self-center">
+    <!-- Slides -->
+<!--     {% for musica in playlist.playlist_musicas.all %} -->
+    <div class="swiper-slide ">
+          <div class="slide-background text-center" style="">
+            <img src="static/img/shalom_-_logo.png" alt="" width="150px" height="auto" class="mt-3 mb-5">
+            <pre class="slide-texto text-center mb-5">{{ playlist.playlist_data }}</pre>
+            <h2>Welcome to Shalom Oxford</h2>
+            <h2>There's a blessing waiting for you!</h2>
+          </div>
+        </div>
+    {% for musica in musicas_da_playlist %}
+      <div class="swiper-slide ">
+          <div class="slide-backgroun d-flex justify-content-center align-center" style="">
+            <pre class="slide-texto text-center">{{ musica.titulo_musica }}</pre>
+          </div>
+        </div>
+      {% for estrofe in musica.estrofes %}
+        <div class="swiper-slide ">
+          <div class="slide-background d-flex justify-content-center align-center">
+            <pre class="slide-texto text-center">{{ estrofe }}</pre>
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+
+<!--     {% endfor %} -->
+
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
